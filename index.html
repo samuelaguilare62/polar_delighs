@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polar Delights - Helados Artesanales Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5D9CEC;
+            --primary-dark: #3A7BD5;
+            --secondary: #2C3E50;
+            --accent: #F78FB3;
+            --accent-dark: #F36886;
+            --light: #FFFFFF;
+            --light-gray: #F5F7FA;
+            --medium-gray: #E0E6ED;
+            --dark-gray: #656D78;
+            --dark: #222F3E;
+            --success: #48CFAD;
+            --warning: #FFA502;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--secondary);
+            line-height: 1.7;
+            background-color: var(--light-gray);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--light);
+            padding: 80px 0 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            clip-path: ellipse(100% 100% at 50% 0%);
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--light-gray);
+            clip-path: ellipse(100% 100% at 50% 0%);
+            z-index: 1;
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .tagline {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--light);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(247, 143, 179, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(247, 143, 179, 0.4);
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--light);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        /* Presentation Section */
+        #presentacion {
+            background-color: var(--light);
+        }
+        
+        .mission-vision {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .mission, .vision {
+            width: 48%;
+            padding: 40px;
+            background-color: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .mission:hover, .vision:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .mission h3, .vision h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        /* Project Section */
+        #proyecto {
+            background-color: var(--light-gray);
+        }
+        
+        .project-name {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .project-name::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        /* Canvas Section */
+        #canvas {
+            background-color: var(--light);
+        }
+        
+        .canvas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .canvas-item {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .canvas-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .canvas-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        .canvas-item ul {
+            list-style-position: inside;
+        }
+        
+        .canvas-item li {
+            margin-bottom: 8px;
+        }
+        
+        /* Marketing Section */
+        #marketing {
+            background-color: var(--light-gray);
+        }
+        
+        .marketing-strategies {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 25px;
+        }
+        
+        .strategy {
+            flex: 1 1 300px;
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .strategy:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .strategy h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .strategy h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .strategy ul {
+            list-style-type: none;
+        }
+        
+        .strategy li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .strategy li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        /* Commercial Section */
+        #comercial {
+            background-color: var(--light);
+        }
+        
+        .commercial-info {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .commercial-text {
+            flex: 1;
+        }
+        
+        .commercial-image {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        
+        .commercial-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.5s;
+        }
+        
+        .commercial-image:hover img {
+            transform: scale(1.03);
+        }
+        
+        .commercial-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px dashed var(--accent);
+            border-radius: 15px;
+            top: -15px;
+            left: -15px;
+            z-index: -1;
+        }
+        
+        /* Campaign Section */
+        #campaña {
+            background-color: var(--light-gray);
+        }
+        
+        .campaign-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .campaign-item {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .campaign-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .campaign-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        .ad-example {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 40px;
+            border-radius: 10px;
+            color: var(--light);
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ad-example::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .ad-example h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--light);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .ad-example p {
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+        }
+        
+        .flavor-options {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .flavor-option {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .flavor-option div:first-child {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .ad-button {
+            display: inline-block;
+            background-color: var(--light);
+            color: var(--primary-dark);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .ad-button:hover {
+            background-color: var(--accent);
+            color: var(--light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Video Section */
+        #video {
+            background-color: var(--light);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin-top: 50px;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .video-container video,
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .contest-rules {
+            margin-top: 50px;
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .contest-rules ol {
+            list-style-type: none;
+            counter-reset: rule-counter;
+        }
+        
+        .contest-rules li {
+            counter-increment: rule-counter;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .contest-rules li::before {
+            content: counter(rule-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--primary);
+            color: var(--light);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        /* Stand Section */
+        #stand {
+            background-color: var(--light-gray);
+        }
+        
+        .stand-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .stand-feature {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .stand-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .stand-feature h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        .stand-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .stand-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .stand-image:hover {
+            transform: translateY(-10px);
+        }
+        
+        .stand-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .stand-image:hover img {
+            transform: scale(1.1);
+        }
+        
+        .stand-image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(44, 62, 80, 0.8);
+            color: var(--light);
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .customer-journey {
+            margin-top: 50px;
+            background-color: var(--light);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .customer-journey ol {
+            list-style-type: none;
+            counter-reset: journey-counter;
+        }
+        
+        .customer-journey li {
+            counter-increment: journey-counter;
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 70px;
+            padding-top: 10px;
+        }
+        
+        .customer-journey li::before {
+            content: counter(journey-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--accent);
+            color: var(--light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(247, 143, 179, 0.3);
+        }
+        
+        .customer-journey strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--secondary), var(--dark));
+            color: var(--light);
+            padding: 80px 0 30px;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            color: var(--light);
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-column p, .footer-column a {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 15px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .qr-code {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .qr-code img {
+            width: 150px;
+            height: auto;
+            border: 5px solid var(--light);
+            border-radius: 10px;
+        }
+        
+        .qr-code p {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--light);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--accent-dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .mission-vision {
+                flex-direction: column;
+            }
+            
+            .mission, .vision {
+                width: 100%;
+            }
+            
+            .commercial-info {
+                flex-direction: column;
+            }
+            
+            .canvas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .project-name {
+                font-size: 2rem;
+            }
+            
+            .commercial-image::before {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--light);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            header {
+                padding: 60px 0 100px;
+            }
+            
+            .logo {
+                font-size: 2.8rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .qr-code {
+                margin: 20px auto 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .canvas-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .mission, .vision {
+                padding: 25px;
+            }
+            
+            .campaign-gallery, .stand-features, .stand-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .flavor-options {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .flavor-option {
+                min-width: 100%;
+            }
+            
+            .customer-journey li {
+                padding-left: 50px;
+            }
+            
+            .customer-journey li::before {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">Polar Delights</div>
+            <div class="tagline">Experiencias frías con sabores que inspiran emociones cálidas</div>
+            <a href="#comercial" class="cta-button">Descubre nuestros sabores</a>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">Polar Delights</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#presentacion">Presentación</a></li>
+                <li><a href="#proyecto">Proyecto</a></li>
+                <li><a href="#canvas">Canvas</a></li>
+                <li><a href="#marketing">Marketing</a></li>
+                <li><a href="#comercial">Comercial</a></li>
+                <li><a href="#campaña">Campaña</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#stand">Stand</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Presentation Section -->
+<section id="presentacion">
+  <div class="container">
+    <div class="section-title">
+      <h2>Presentación del Proyecto</h2>
+    </div>
+    
+    <p>Polar Delights nace con la idea de transformar la forma en que las personas disfrutan los helados, combinando lo mejor de la tradición mexicana con la sofisticación del gelato italiano. Nuestro proyecto se enfoca en ofrecer una experiencia única, divertida y creativa, donde cada cliente pueda diseñar su helado a su gusto, eligiendo entre una amplia variedad de sabores, formas, colores y toppings.</p>
+    
+    <p>En un mercado cada vez más competitivo, Polar Delights se distingue por su concepto innovador de personalización total, calidad artesanal y un ambiente temático inspirado en el mundo polar. Además de satisfacer el paladar, buscamos brindar un espacio donde las personas puedan compartir momentos inolvidables, ya sea en familia, con amigos o en pareja.</p>
+    
+    <p>Nuestra propuesta también incluye una fuerte presencia digital, estrategias de marketing atractivas y un compromiso con prácticas sustentables. Polar Delights no solo vende helados: ofrece una experiencia memorable, adaptada a los gustos de cada cliente.</p>
+    
+    <div class="mission-vision">
+      <div class="mission">
+        <h3>Misión</h3>
+        <p>Ofrecer una experiencia única y personalizada en la venta de helados, fusionando sabores tradicionales mexicanos con la elegancia del gelato italiano, permitiendo que cada cliente diseñe su helado ideal en un ambiente divertido, fresco y amigable.</p>
+      </div>
+      
+      <div class="vision">
+        <h3>Visión</h3>
+        <p>Ser la empresa líder en innovación y personalización de helados en México, reconocida por su calidad, originalidad y compromiso con la satisfacción del cliente, expandiendo nuestra marca a nivel nacional en los próximos 5 años.</p>
+      </div>
+    </div>
+  </div>
+</section>
+    
+    <!-- Project Section -->
+    <section id="proyecto">
+  <div class="container">
+    <div class="section-title">
+      <h2>Nombre del Proyecto</h2>
+    </div>
+    
+    <div class="project-name">Polar Delights</div>
+    
+    <p>El nombre "Polar Delights" refleja nuestra esencia de combinar la frescura de los helados (Polar) con la creación de experiencias deliciosas (Delights) para nuestros clientes.</p>
+    
+    <p>Nuestro proyecto se basa en tres pilares fundamentales:</p>
+    <div style="display: flex; justify-content: space-between; gap: 20px; margin-top: 30px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 250px; background: var(--light); padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; border-top: 4px solid var(--primary);">
+        <i class="fas fa-lightbulb" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 15px;"></i>
+        <h4 style="margin-bottom: 10px;">Personalización</h4>
+        <p>Cada cliente diseña su helado ideal con múltiples opciones de sabores y toppings.</p>
+      </div>
+      
+      <div style="flex: 1; min-width: 250px; background: var(--light); padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; border-top: 4px solid var(--accent);">
+        <i class="fas fa-award" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 15px;"></i>
+        <h4 style="margin-bottom: 10px;">Fusión Cultural</h4>
+        <p>Combinamos lo mejor de la tradición mexicana con la técnica italiana del gelato.</p>
+      </div>
+      
+      <div style="flex: 1; min-width: 250px; background: var(--light); padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; border-top: 4px solid var(--success);">
+        <i class="fas fa-leaf" style="font-size: 2.5rem; color: var(--success); margin-bottom: 15px;"></i>
+        <h4 style="margin-bottom: 10px;">Experiencia</h4>
+        <p>No solo vendemos helados, creamos momentos memorables en un ambiente polar único.</p>
+      </div>
+    </div>
+  </div>
+</section>
+    
+    <!-- Canvas Section -->
+    <section id="canvas">
+        <div class="container">
+            <div class="section-title">
+                <h2>Malla Canvas</h2>
+            </div>
+            
+            <div class="canvas-grid">
+                <div class="canvas-item">
+                    <h3>Socios Clave</h3>
+                    <ul>
+                        <li>Proveedores de ingredientes locales</li>
+                        <li>Plataformas de delivery</li>
+                        <li>Influencers y creadores de contenido</li>
+                        <li>Organizadores de eventos</li>
+                    </ul>
+                </div>
+                
+                <div class="canvas-item">
+                    <h3>Actividades Clave</h3>
+                    <ul>
+                        <li>Producción de helados artesanales</li>
+                        <li>Marketing y publicidad</li>
+                        <li>Atención al cliente</li>
+                        <li>Investigación y desarrollo de nuevos sabores</li>
+                    </ul>
+                </div>
+                
+                <div class="canvas-item">
+                    <h3>Recursos Clave</h3>
+                    <ul>
+                        <li>Ingredientes naturales y frescos</li>
+                        <li>Equipo de producción (máquinas para hacer el helado)</li>
+                        <li>Personal capacitado</li>
+                        <li>Local atractivo y acogedor</li>
+                    </ul>
+                </div>
+                
+                <div class="canvas-item">
+                    <h3>Propuesta de Valor</h3>
+                    <ul>
+                        <li>Helados artesanales mexicanos con influencia italiana</li>
+                        <li>Textura innovadora y personalizada</li>
+                        <li>Sabores según festividades y gustos de los clientes (tamarindo, limón, café, fresa, pistacho, etc.)</li>
+                        <li>Ingredientes 100% naturales, orgánicos y locales</li>
+                        <li>Reducción de colorantes y conservadores para mejorar la salud</li>
+                    </ul>
+                </div>
+                
+                <div class="canvas-item">
+                    <h3>Relación con Clientes</h3>
+                    <ul>
+                        <li>Atención personalizada</li>
+                        <li>Promociones y descuentos para clientes frecuentes</li>
+                        <li>Degustaciones y eventos especiales</li>
+                        <li>Programa de fidelidad</li>
+                    </ul>
+                </div>
+                
+                <div class="canvas-item">
+                    <h3>Canales de Distribución</h3>
+                    <ul>
+                        <li>Tienda física</li>
+                        <li>Redes sociales (Instagram, TikTok)</li>
+                        <li>Distribución a domicilio</li>
+                        <li>Eventos y ferias locales gastronómicas y culturales</li>
+                    </ul>
+                </div>
+                
+                <div class="canvas-item">
+                    <h3>Segmentos de Clientes</h3>
+                    <ul>
+                        <li>Familias</li>
+                        <li>Jóvenes</li>
+                        <li>Niños</li>
+                        <li>Turistas</li>
+                        <li>Personas que buscan opciones naturales y de calidad</li>
+                    </ul>
+                </div>
+                
+                <div class="canvas-item">
+                    <h3>Estructura de Costos</h3>
+                    <ul>
+                        <li>Compra de ingredientes</li>
+                        <li>Renta del local</li>
+                        <li>Sueldos del personal</li>
+                        <li>Marketing y publicidad</li>
+                        <li>Mantenimiento de equipo</li>
+                    </ul>
+                </div>
+                
+                <div class="canvas-item">
+                    <h3>Flujos de Ingresos</h3>
+                    <ul>
+                        <li>Ventas directas en el negocio</li>
+                        <li>Pedidos en línea y a domicilio</li>
+                        <li>Pedidos para eventos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Marketing Section -->
+    <section id="marketing">
+  <div class="container">
+    <div class="section-title">
+      <h2>Plan de Marketing</h2>
+    </div>
+    
+    <div class="marketing-strategies">
+      <div class="strategy">
+        <h4>Producto</h4>
+        <ul>
+          <li>Helados artesanales y gelatos italianos</li>
+          <li>Opción de personalización con toppings, rellenos y formas creativas</li>
+          <li>Productos especiales por temporada y colaboraciones</li>
+        </ul>
+      </div>
+      
+      <div class="strategy">
+        <h4>Precio</h4>
+        <ul>
+          <li>Precios accesibles con paquetes promocionales</li>
+          <li>Programa de fidelidad con descuentos y helados gratis tras compras frecuentes</li>
+          <li>Estrategia de precios diferenciados: premium vs. básicos</li>
+        </ul>
+      </div>
+      
+      <div class="strategy">
+        <h4>Plaza (Distribución)</h4>
+        <ul>
+          <li>Venta en tienda física con diseño temático (ambiente polar)</li>
+          <li>Food truck en ferias y eventos locales</li>
+          <li>Posible venta en línea con entregas a domicilio en zonas cercanas</li>
+        </ul>
+      </div>
+      
+      <div class="strategy">
+        <h4>Promoción</h4>
+        <ul>
+          <li>Redes sociales (Instagram, TikTok, Facebook) con contenido atractivo y sorteos</li>
+          <li>Influencers locales para promoción de productos</li>
+          <li>Alianzas con escuelas, universidades y empresas para eventos especiales</li>
+          <li>Descuentos por inauguración y fechas especiales</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+    
+    <!-- Commercial Section -->
+    <section id="comercial">
+        <div class="container">
+            <div class="section-title">
+                <h2>Plan Comercial</h2>
+            </div>
+            
+            <div class="commercial-info">
+                <div class="commercial-text">
+                    <h3>Modelo de Ventas Omnicanal</h3>
+                    <p>Nuestro modelo comercial integra múltiples canales para ofrecer una experiencia de compra fluida y conveniente:</p>
+                    
+                    <ul style="list-style-type: none;">
+                        <li style="margin-bottom: 15px; position: relative; padding-left: 30px;">
+                            <i class="fas fa-store" style="position: absolute; left: 0; color: var(--primary);"></i>
+                            <strong>Tiendas físicas flagship:</strong> Locales diseñados con una experiencia inmersiva donde los clientes pueden ver el proceso de preparación artesanal.
+                        </li>
+                        <li style="margin-bottom: 15px; position: relative; padding-left: 30px;">
+                            <i class="fas fa-truck" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            <strong>Quioscos móviles:</strong> Puntos de venta temporales en eventos, parques y lugares de alta afluencia con nuestro diseño característico.
+                        </li>
+                        <li style="margin-bottom: 15px; position: relative; padding-left: 30px;">
+                            <i class="fas fa-shopping-cart" style="position: absolute; left: 0; color: var(--success);"></i>
+                            <strong>E-commerce premium:</strong> Venta online con delivery en frío garantizado y empaques sostenibles.
+                        </li>
+                        <li style="margin-bottom: 15px; position: relative; padding-left: 30px;">
+                            <i class="fas fa-utensils" style="position: absolute; left: 0; color: var(--warning);"></i>
+                            <strong>Distribución mayorista:</strong> A restaurantes, hoteles y cafeterías selectos que compartan nuestros valores.
+                        </li>
+                    </ul>
+                    
+                
+                </div>
+                
+                <div class="commercial-image">
+                    <img src="https://i.ibb.co/yBcRhybq/IMG-20250505-WA0004.webp" alt="Helados artesanales Polar Delights">
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- Campaign Section -->
+    <section id="campaña">
+        <div class="container">
+            <div class="section-title">
+                <h2>Campaña Publicitaria</h2>
+            </div>
+            
+            <h3 style="text-align: center; color: var(--primary-dark); margin-bottom: 30px;">"Sabores que Cuentan Historias"</h3>
+            
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px;">Nuestra campaña estrella se centra en conectar emocionalmente con nuestro público a través de historias personales que se reflejan en nuestros sabores únicos, creando una narrativa poderosa que trasciende el producto.</p>
+            
+            <div class="campaign-gallery">
+                <div class="campaign-item">
+                    <h4>Fase 1: Lanzamiento</h4>
+                    <ul>
+                        <li>Teasers en redes sociales con sabores misteriosos</li>
+                        <li>Influencers gastronómicos probando combinaciones secretas</li>
+                        <li>Concursos para nombrar nuevos helados</li>
+                        <li>Evento de prensa con degustación multisensorial</li>
+                        <li>Instalaciones artísticas urbanas con temática polar</li>
+                    </ul>
+                </div>
+                
+                <div class="campaign-item">
+                    <h4>Fase 2: Consolidación</h4>
+                    <ul>
+                        <li>Historias reales de clientes y sus sabores favoritos</li>
+                        <li>Colaboraciones con artistas locales para ediciones especiales</li>
+                        <li>Helados de edición limitada por temporada</li>
+                        <li>Promociones con códigos QR que revelan contenido exclusivo</li>
+                        <li>Pop-up stores con temáticas cambiantes</li>
+                    </ul>
+                </div>
+                
+                <div class="campaign-item">
+                    <h4>Fase 3: Expansión</h4>
+                    <ul>
+                        <li>Documental "Del campo a tu helado" sobre nuestros proveedores</li>
+                        <li>Experiencias de realidad aumentada en puntos de venta</li>
+                        <li>Programa de embajadores de marca con beneficios exclusivos</li>
+                        <li>Coleccionables con códigos para descuentos</li>
+                        <li>Eventos benéficos con porcentaje de ventas</li>
+                    </ul>
+                </div>
+                
+                <div class="campaign-item">
+                    <h4>Materiales Creativos</h4>
+                    <ul>
+                        <li>Videos cinematográficos para TV y plataformas digitales</li>
+                        <li>Fotografía de producto con estilo de vida premium</li>
+                        <li>Diseño de empaques coleccionables por artistas</li>
+                        <li>Merchandising creativo (cucharones, termos, etc.)</li>
+                        <li>Filtros AR para redes sociales</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="ad-example">
+                <h3>"¿Recuerdas el sabor de tu infancia?"</h3>
+                <p>En Polar Delights hemos capturado esos momentos especiales en sabores únicos que despertarán tus recuerdos más dulces.</p>
+                
+                <div class="flavor-options">
+                    <div class="flavor-option">
+                        <div>Abuela's Pastel</div>
+                        <div>Helado de vainilla con trozos de pastel de zanahoria</div>
+                    </div>
+                    
+                    <div class="flavor-option">
+                        <div>Recreo</div>
+                        <div>Helado de galleta con trozos de sandwich de crema</div>
+                    </div>
+                    
+                    <div class="flavor-option">
+                        <div>Verano Eterno</div>
+                        <div>Sorbete de mango con chile y limón</div>
+                    </div>
+                </div>
+                
+                <button class="ad-button">Descubre tu sabor nostálgico</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Video Section -->
+    <section id="video">
+        <div class="container">
+            <div class="section-title">
+                <h2>Video de Concurso</h2>
+            </div>
+            
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Como parte de nuestra estrategia de engagement, lanzamos el concurso <strong>"Crea el sabor Polar Delights de tus sueños"</strong>, donde invitamos a nuestros clientes a convertirse en creadores de sabores por un día.</p>
+            <div class="video-container">
+    <video controls controlsList="nodownload" disablePictureInPicture>
+        <source src="/video/promcional.mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
+</div>
+            
+            <div class="contest-rules">
+                <h3 style="text-align: center; margin-bottom: 30px;">Bases del Concurso</h3>
+                <ol>
+                    <li>
+                        <strong>Creación del video</strong>
+                        <p>Los participantes deben crear un video creativo de máximo 1 minuto presentando su idea de sabor único, incluyendo:</p>
+                        <ul>
+                            <li>Nombre original del helado</li>
+                            <li>Ingredientes principales y su procedencia</li>
+                            <li>La historia personal o inspiración detrás de la creación</li>
+                            <li>Presentación visual atractiva</li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <strong>Publicación</strong>
+                        <p>El video debe ser subido a Instagram o TikTok con el hashtag <strong>#MiPolarDelight</strong> y etiquetando a @PolarDelightsOficial.</p>
+                    </li>
+                    
+                    <li>
+                        <strong>Criterios de evaluación</strong>
+                        <p>Los videos serán evaluados según:</p>
+                        <ul>
+                            <li>Creatividad y originalidad (40%)</li>
+                            <li>Viabilidad de producción (30%)</li>
+                            <li>Engagement generado (likes, comentarios) (20%)</li>
+                            <li>Calidad de presentación (10%)</li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <strong>Premios</strong>
+                        <p>El ganador recibirá:</p>
+                        <ul>
+                            <li>Su helado producido y vendido en todas nuestras tiendas por 3 meses</li>
+                            <li>1% de las ventas brutas de ese sabor durante el periodo</li>
+                            <li>Suministro gratuito de helado por 1 año</li>
+                            <li>Participación en el proceso de producción profesional</li>
+                            <li>Sesión fotográfica profesional con el producto</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stand Section -->
+    <section id="stand">
+        <div class="container">
+            <div class="section-title">
+                <h2>Diseño del Stand</h2>
+            </div>
+            
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px;">Nuestro stand de venta y exhibición es una experiencia inmersiva que transporta a los visitantes a un mundo de sabores únicos, combinando diseño innovador con funcionalidad premium.</p>
+            
+            <h3 style="text-align: center; margin-bottom: 30px;">Características Principales</h3>
+            
+            <div class="stand-features">
+                <div class="stand-feature">
+                    <h4>Diseño Icónico</h4>
+                    <p>Forma angular que simula un iceberg moderno, con la parte "sumergida" siendo zona de preparación visible al público. Superficies en acero pulido y vidrio con iluminación LED variable.</p>
+                </div>
+                
+                <div class="stand-feature">
+                    <h4>Paleta de Colores</h4>
+                    <p>Blancos brillantes, azules profundos y toques de verde menta, con iluminación LED que cambia según la hora del día y el sabor destacado.</p>
+                </div>
+                
+                <div class="stand-feature">
+                    <h4>Interactividad</h4>
+                    <p>Pantallas táctiles 4K para explorar sabores, ver su origen y crear combinaciones personalizadas con sugerencias en tiempo real.</p>
+                </div>
+                
+                <div class="stand-feature">
+                    <h4>Zona Fotográfica</h4>
+                    <p>Escenario con fondos digitales temáticos cambiantes y props relacionados con el helado, con cámara integrada para fotos instantáneas con marca.</p>
+                </div>
+                
+                <div class="stand-feature">
+                    <h4>Sostenibilidad</h4>
+                    <p>Materiales reciclados y reciclables, sistema de recolección de agua condensada, y energía parcialmente solar.</p>
+                </div>
+                
+                <div class="stand-feature">
+                    <h4>Realidad Aumentada</h4>
+                    <p>Activación mediante app que muestra información de sabores, orígenes de ingredientes y animaciones interactivas.</p>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; margin: 70px 0 30px;">Galería del Stand</h3>
+            
+            <div class="stand-gallery">
+                <div class="stand-image">
+                    <img src="https://i.ibb.co/8hDMz4W/campa-a.webp" alt="Vista frontal del stand Polar Delights">
+                    <div class="stand-image-caption">Vista Frontal - Diseño Iceberg</div>
+                </div>
+                
+                
+            </div>
+            
+            <div class="customer-journey">
+                <h3 style="text-align: center; margin-bottom: 30px;">Experiencia del Cliente en el Stand</h3>
+                
+                <ol>
+                    <li>
+                        <strong>Bienvenida sensorial</strong>
+                        <p>Al acercarse al stand, sensores activan una suave brisa fría con aroma a vainilla de Madagascar y una iluminación azul refrescante que invita a entrar.</p>
+                    </li>
+                    
+                    <li>
+                        <strong>Tour de sabores</strong>
+                        <p>Asistentes especializados guían a los visitantes a través de las diferentes familias de sabores, con muestras gratuitas de los productos estrella.</p>
+                    </li>
+                    
+                    <li>
+                        <strong>Creación personalizada</strong>
+                        <p>En tablets de diseño, los clientes pueden crear su propio helado combinando bases, sabores y toppings, con sugerencias en tiempo real según sus preferencias.</p>
+                    </li>
+                    
+                    <li>
+                        <strong>Show de preparación</strong>
+                        <p>Chefs preparan helados al momento con técnicas espectaculares (nitrógeno líquido, cocina molecular) que convierten el proceso en un espectáculo.</p>
+                    </li>
+                    
+                    <li>
+                        <strong>Momento Instagrameable</strong>
+                        <p>Zona fotográfica con fondos temáticos cambiantes y props relacionados con el helado, con cámara integrada para fotos instantáneas con marco Polar Delights.</p>
+                    </li>
+                    
+                    <li>
+                        <strong>Despedida memorable</strong>
+                        <p>Al finalizar, los visitantes reciben un cupón digital para su próxima visita y una muestra sorpresa de un sabor nuevo por probar.</p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Polar Delights</h3>
+                    <p>Experiencias frías con sabores cálidos. Helados artesanales premium creados con ingredientes naturales y procesos innovadores.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Av. Helados 123, Distrito Gourmet</p>
+                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@polardelights.com</p>
+                    <p><i class="fas fa-clock" style="margin-right: 10px;"></i> Lunes a Domingo: 10am - 10pm</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Escanea el QR</h3>
+                    <div class="qr-code">
+                        <img src="https://i.ibb.co/q31B5158/qr.webp" alt="QR Code Polar Delights">
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Polar Delights. Todos los derechos reservados. | Diseñado con ❤️ por tu equipo creativo</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') return;
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // Show/hide back to top button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.mission, .vision, .canvas-item, .strategy, .campaign-item, .stand-feature');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.mission, .vision, .canvas-item, .strategy, .campaign-item, .stand-feature').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
