@@ -941,7 +941,15 @@
             .qr-code {
                 margin: 20px auto 0;
             }
-        }
+
+    #canvas .canvas-grid>div {
+        grid-template-columns: 1fr !important;
+    }
+    
+    #canvas .canvas-item {
+        margin-bottom: 15px;
+    }
+}
         
         @media (max-width: 576px) {
             .canvas-grid {
@@ -1082,107 +1090,27 @@
 </section>
     
     <!-- Canvas Section -->
-    <section id="canvas">
-        <div class="container">
-            <div class="section-title">
-                <h2>Malla Canvas</h2>
-            </div>
-            
-            <div class="canvas-grid">
-                <div class="canvas-item">
-                    <h3>Socios Clave</h3>
-                    <ul>
-                        <li>Proveedores de ingredientes locales</li>
-                        <li>Plataformas de delivery</li>
-                        <li>Influencers y creadores de contenido</li>
-                        <li>Organizadores de eventos</li>
-                    </ul>
-                </div>
-                
-                <div class="canvas-item">
-                    <h3>Actividades Clave</h3>
-                    <ul>
-                        <li>Producción de helados artesanales</li>
-                        <li>Marketing y publicidad</li>
-                        <li>Atención al cliente</li>
-                        <li>Investigación y desarrollo de nuevos sabores</li>
-                    </ul>
-                </div>
-                
-                <div class="canvas-item">
-                    <h3>Recursos Clave</h3>
-                    <ul>
-                        <li>Ingredientes naturales y frescos</li>
-                        <li>Equipo de producción (máquinas para hacer el helado)</li>
-                        <li>Personal capacitado</li>
-                        <li>Local atractivo y acogedor</li>
-                    </ul>
-                </div>
-                
-                <div class="canvas-item">
-                    <h3>Propuesta de Valor</h3>
-                    <ul>
-                        <li>Helados artesanales mexicanos con influencia italiana</li>
-                        <li>Textura innovadora y personalizada</li>
-                        <li>Sabores según festividades y gustos de los clientes (tamarindo, limón, café, fresa, pistacho, etc.)</li>
-                        <li>Ingredientes 100% naturales, orgánicos y locales</li>
-                        <li>Reducción de colorantes y conservadores para mejorar la salud</li>
-                    </ul>
-                </div>
-                
-                <div class="canvas-item">
-                    <h3>Relación con Clientes</h3>
-                    <ul>
-                        <li>Atención personalizada</li>
-                        <li>Promociones y descuentos para clientes frecuentes</li>
-                        <li>Degustaciones y eventos especiales</li>
-                        <li>Programa de fidelidad</li>
-                    </ul>
-                </div>
-                
-                <div class="canvas-item">
-                    <h3>Canales de Distribución</h3>
-                    <ul>
-                        <li>Tienda física</li>
-                        <li>Redes sociales (Instagram, TikTok)</li>
-                        <li>Distribución a domicilio</li>
-                        <li>Eventos y ferias locales gastronómicas y culturales</li>
-                    </ul>
-                </div>
-                
-                <div class="canvas-item">
-                    <h3>Segmentos de Clientes</h3>
-                    <ul>
-                        <li>Familias</li>
-                        <li>Jóvenes</li>
-                        <li>Niños</li>
-                        <li>Turistas</li>
-                        <li>Personas que buscan opciones naturales y de calidad</li>
-                    </ul>
-                </div>
-                
-                <div class="canvas-item">
-                    <h3>Estructura de Costos</h3>
-                    <ul>
-                        <li>Compra de ingredientes</li>
-                        <li>Renta del local</li>
-                        <li>Sueldos del personal</li>
-                        <li>Marketing y publicidad</li>
-                        <li>Mantenimiento de equipo</li>
-                    </ul>
-                </div>
-                
-                <div class="canvas-item">
-                    <h3>Flujos de Ingresos</h3>
-                    <ul>
-                        <li>Ventas directas en el negocio</li>
-                        <li>Pedidos en línea y a domicilio</li>
-                        <li>Pedidos para eventos</li>
-                    </ul>
-                </div>
-            </div>
+<!-- Canvas Section -->
+<section id="canvas">
+    <div class="container">
+        <div class="section-title">
+            <h2>Malla Canvas</h2>
         </div>
-    </section>
+        
+        <div style="text-align: center; margin: 40px 0;">
+            <img src="/img/malla.png" 
+                 alt="Malla Canvas Polar Delights" 
+                 style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        </div>
+        
+        <!-- Opcional: Puedes mantener el texto como alternativa para SEO -->
+        <div style="display: none;">
+            <h3>Propuesta de Valor</h3>
+            <p>Helados artesanales mexicanos fusionados con la cultura italiana...</p>
+            <!-- Resto del contenido textual -->
+        </div>
+    </div>
+</section>
     
     <!-- Marketing Section -->
     <section id="marketing">
@@ -1361,15 +1289,12 @@
     <section id="video">
         <div class="container">
             <div class="section-title">
-                <h2>Video de Concurso</h2>
+                <h2>Video Comercial</h2>
             </div>
             
-            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Como parte de nuestra estrategia de engagement, lanzamos el concurso <strong>"Crea el sabor Polar Delights de tus sueños"</strong>, donde invitamos a nuestros clientes a convertirse en creadores de sabores por un día.</p>
+           <p style="text-align: center; max-width: 800px; margin: 0 auto;">El comercial de Polar Delights es una presentación dinámica que da a conocer la esencia de la marca, destacando lo que la hace única frente a otras opciones en el mercado. Se muestra la propuesta innovadora de ofrecer helados tradicionales combinados con gelatos italianos, permitiendo a los clientes diseñar su propio postre ideal. Además, se resaltan los ingredientes naturales y de alta calidad que garantizan una experiencia deliciosa y auténtica, así como la variedad de sabores disponibles. Finalmente, el video invita al público a seguir a Polar Delights en sus redes sociales, reforzando su conexión con la comunidad y su presencia digital.</p>
             <div class="video-container">
-    <video controls controlsList="nodownload" disablePictureInPicture>
-        <source src="video/promcional.mp4">
-        Tu navegador no soporta el elemento de video.
-    </video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Hb1qgk1OaJM?si=NWSQJPrvoTYYq3FG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
             
             <div class="contest-rules">
